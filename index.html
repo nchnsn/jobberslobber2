@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Jobber Slobber</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Link Google Font - Nosifer -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" />
+
+  <!-- Demo styles -->
+  <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+    }
+
+    .header {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-family: 'Nosifer', cursive;
+      font-size: 48px;
+      color: #000;
+      margin: 0;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-item {
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 10px;
+      margin: 5px;
+      font-size: 14px;
+      text-align: center;
+      width: 100px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .nav-item a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .swiper {
+      width: 240px;
+      height: 320px;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: #fff;
+      border: 2px solid #000;
+      border-radius: 18px;
+      padding: 10px;
+      text-align: center;
+      overflow: hidden;
+      color: #000;
+    }
+
+    .swiper-slide img {
+      max-width: 100%;
+      max-height: 50%;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .swiper-slide a {
+      color: #000;
+      font-weight: bold;
+      font-size: 18px;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .swiper-slide p {
+      font-size: 14px;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <h1>Jobber Slobber</h1>
+  </div>
+
+  <div class="nav-bar">
+    <div class="nav-item"><a href="#">WWE</a></div>
+    <div class="nav-item"><a href="#">AEW</a></div>
+    <div class="nav-item"><a href="#">Squared Circle</a></div>
+    <div class="nav-item"><a href="#">Meltzer</a></div>
+    <div class="nav-item"><a href="#">Figure Four</a></div>
+    <div class="nav-item"><a href="#">Fightful</a></div>
+    <div class="nav-item"><a href="#">Jim Cornette</a></div>
+    <div class="nav-item"><a href="#">Post Wrestling</a></div>
+  </div>
+
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- The slides will be populated by the RSS feed -->
+    </div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper and Fetch RSS -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cards",
+      grabCursor: true,
+    });
+
+    const rssUrl = 'https://rss.app/feeds/_Neao1n1LDrhR7Kjj.xml'; // Replace with your RSS feed URL
+
+    async function loadRSS() {
+      try {
+        const response = await fetch(rssUrl);
+        const text = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, "application/xml");
+        const items = xml.querySelectorAll("item");
+        const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+        items.forEach((item, index) => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide';
+
+          const title = item.querySelector("title").textContent;
+          const link = item.querySelector("link").textContent;
+          const description = item.querySelector("description").textContent;
+
+          // Find an image in the item, commonly found in <enclosure> or <media:content>
+          let imageUrl = "";
+          const enclosure = item.querySelector("enclosure");
+          if (enclosure && enclosure.getAttribute("type").startsWith("image/")) {
+            imageUrl = enclosure.getAttribute("url");
+          } else if (item.querySelector("media\\:content")) {
+            imageUrl = item.querySelector("media\\:content").getAttribute("url");
+          }
+
+          // Create image element if imageUrl is found
+          const imageHtml = imageUrl ? `<img src="${imageUrl}" alt="RSS Image">` : "";
+
+          slide.innerHTML = `
+            ${imageHtml}
+            <a href="${link}" target="_blank">${title}</a>
+            <p>${description}</p>
+          `;
+
+          swiperWrapper.appendChild(slide);
+        });
+
+        swiper.update(); // Update Swiper to reflect the new slides
+      } catch (error) {
+        console.error("Failed to load RSS feed:", error);
+      }
+    }
+
+    loadRSS();
+  </script>
+</body>
+
+</html>
