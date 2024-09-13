@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JOBBER SLOBBER</title>
     <link href="https://fonts.googleapis.com/css2?family=Nosifer&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* General Reset */
         * {
             margin: 0;
-            padding: 0;
+            padding: 0;                                                                                                                         
             box-sizing: border-box;
             scroll-margin-top: 110px;
         }
@@ -25,11 +26,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #F5F5F5;
         }
 
         /* Header Styling */
         header {
-            background-color: #fff;
+            background-color: #F5F5F5;
             color: #000;
             padding: 20px;
             text-align: center;
@@ -119,21 +121,31 @@
             display: flex;
             justify-content: center;
         }
-
         nav ul li {
-            margin: 5px 15px;
-        }
+    margin: 5px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
-        nav ul li a {
-            color: #000;
-            text-decoration: none;
-            font-size: 12px;
-        }
+nav ul li img.nav_icon {
+    margin-bottom: 5px;
+}
 
-        nav ul li a:hover {
-            color: magenta;
-            background-color: #000;
-        }
+nav ul li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    color: magenta;
+    background-color: #000;
+}
+
+
 
         /* Circle Animation */
         nav ul li a {
@@ -215,6 +227,7 @@
 
         /* Main Content */
         .content {
+            
             padding: 10px 20px 20px 20px;
             flex: 1;
         }
@@ -230,19 +243,21 @@
         .single-column .column {
             flex: 1;
             padding: 0px 20px 0px 20px;
-            background-color: #fff;
+            
             margin-bottom: 10px;
+            
         }
 
         /* Three Columns */
         .three-columns .column {
             flex: 1;
             padding: 20px;
-            background-color: #fff;
             margin: 5px;
             border: 1px solid #000;
             border-radius: 10px;
             box-shadow: 5px 5px 0.05px #000;
+            background-color: #fff;
+            
         }
 
         .three-columns .column:nth-child(2) {
@@ -287,7 +302,84 @@
             border-radius: 10px;
             border: 1px solid #000;
             box-shadow: 5px 5px 0.05px #000;
+            background-color: #fff;
+            
         }
+        .title_icon {
+            height: 45px;
+            position: relative;
+            float: left;
+            border-radius: 50%; 
+            padding: 5px;
+           
+        }
+        .nav_icon {
+            height: 45px;
+            position:relative;
+            align-items: center;
+            border-radius: 50%; 
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            filter: grayscale(100%);
+            
+        }
+        .nav-menu {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            
+        }
+        .nav_title {
+           
+        }
+
+        #aew-slider {
+            border-color: goldenrod;
+            
+        }
+        #meme-slider {
+            border-color: magenta;
+        }
+        #reddit-slider {
+            border-color: orangered;
+        }
+        #meltzer-slider {
+            
+            
+        }
+        #post-slider {
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color:navy;
+            color: #fff;
+            border-radius: 10px;
+            border: 1px solid #fff;
+            box-shadow: 5px 5px 0.05px red;
+        }
+        #tik-tok-slider {
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color:rgb(223, 255, 244);
+            color: #000;
+            border-radius: 10px;
+            border: 1px solid rgb(62, 211, 184) ;
+            box-shadow:5px 5px 0.05px rgb(255, 0, 179);
+        }
+
+        #observer-slider {
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            background-color:red;
+            color: #fff;
+            border-radius: 10px;
+            border: 1px solid #fff;
+            box-shadow: 5px 5px 0.05px red;
+        }
+           
     </style>
 </head>
 <body>
@@ -305,13 +397,34 @@
     <!-- Navigation Bar -->
     <nav id="nav-menu">
         <ul>
-            <li><a href="#wwe-slider">WWE</a></li>
-            <li><a href="#aew-slider">AEW</a></li>
-            <li><a href="#jimcornette">JIM CORNETTE</a></li>
-            <li><a href="#dave">MELTZER</a></li>
-            <li><a href="#squaredcircle">r/SQUARED CIRCLE</a></li>
-            <li><a href="#meme-slider">MEMES</a></li>
-            <li><a href="#podcasts">PODCASTS</a></li>
+            <li>
+                <img class="nav_icon" src="wwe.jpg">
+                <a href="#wwe-slider">WWE</a>
+            </li>
+            <li>
+                <img class="nav_icon" src="aew.jpg">
+                <a href="#aew-slider">AEW</a>
+            </li>
+            <li>
+                <img class="nav_icon" src="jimcornette.jpg">
+                <a href="#jimcornette">JIM CORNETTE</a>
+            </li>
+            <li>
+                <img class="nav_icon" src="meltzer.jpg">
+                <a href="#dave">MELTZER</a>
+            </li>
+            <li>
+                <img class="nav_icon" src="squaredcircle.png">
+                <a href="#squaredcircle">r/SQUARED CIRCLE</a>
+            </li>
+            <li>
+                <img class="nav_icon" src="jimcornette.jpg">
+                <a href="#meme-slider">MEMES</a>
+            </li>
+            <li>
+                <img class="nav_icon" src="jimcornette.jpg">
+                <a href="#podcasts" class="nav_title">PODCASTS</a>
+            </li>
         </ul>
     </nav>
 
@@ -326,29 +439,52 @@
                     <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
                 </div>  
                 <div class="rss-slider" id="jimcornette">
+                    <img class="title_icon" src="jimcornette.jpg">
                     <h2>JIM CORNETTE</h2>
                     <rssapp-carousel id="HyWJLpHtJHX143zR"></rssapp-carousel>
                     <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
                 </div>
                 <div class="rss-slider" id="wwe-slider">
+                    <img class="title_icon" src="wwe.jpg">
                     <h2>WWE</h2>
                     <rssapp-carousel id="dgT8VjcVOdk7vCsV"></rssapp-carousel>
                     <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
                 </div>
                 <div class="rss-slider" id="aew-slider">
+                    <img class="title_icon" src="aew.jpg">
                     <h2>AEW</h2>
                     <rssapp-carousel id="0yJy0WXCHoQg9dXJ"></rssapp-carousel>
                     <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+                </div>
+                <div class="rss-slider" id="observer-slider">
+                    <img class="title_icon">
+                    <h2>WRESTLING OBSERVER</h2>
+                    <rssapp-carousel id="JNuL0xZVhfyVX46U"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
                 </div>
                 <div class="rss-slider" id="meme-slider">
                     <h2>WRESTLING MEMES</h2>
                     <rssapp-carousel id="_UKZvmSTFWj4RdZaq"></rssapp-carousel>
                     <script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
                 </div>
+                <div class="rss-slider" id="meltzer-slider">
+                    <img class="title_icon" src="meltzer.jpg">
+                    <h2>@MELTZER</h2>
+                    <rssapp-carousel id="humSqdRUNS6kABhG"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+                </div>
+                <div class="rss-slider" id="reddit-slider">
+                    <img class="title_icon" src="squaredcircle.png">
+                    <h2>r/SQUARED CIRCLE</h2>
+                    <rssapp-carousel id="AjCVFAH7kf1OePaC"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+                </div>
+                <div class="rss-slider" id="post-slider">
+                    <img class="title_icon">
+                    <h2>POST Wrestling</h2>
+                    <rssapp-carousel id="f6W9OtwzIl5gZOvd"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+                </div>
             </div>
         </div>
 
-        <!-- Three Column Row -->
+        <!-- Three Column Row 
         <div class="row three-columns">
             <div class="column" id="DIRTSHEETS">
                 <h2>DIRTSHEETS</h2>
@@ -364,7 +500,7 @@
                 <rssapp-list id="AjCVFAH7kf1OePaC"></rssapp-list><script src="https://widget.rss.app/v1/list.js" type="text/javascript" async></script>
             </div>
         </div>
-
+                    -->
         <!-- Single Column Row -->
         <div class="row single-column">
             <div class="column">
@@ -375,7 +511,15 @@
                 </div>
             </div>
         </div>
-
+        <!-- Single Column Row - Tik Tok -->
+        <div class="row single-column">
+            <div class="column">
+                <div class="rss-slider" id="tik-tok-slider">
+                    <h2>WWE Tik Tok</h2>
+                    <rssapp-carousel id="BFvmozBLnzBlyYpU"></rssapp-carousel><script src="https://widget.rss.app/v1/carousel.js" type="text/javascript" async></script>
+                </div>
+            </div>
+        </div>
         <!-- Three Column Row -->
         
     </div>
